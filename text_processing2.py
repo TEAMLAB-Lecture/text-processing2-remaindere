@@ -60,6 +60,8 @@ def digits_to_words(input_string):
             return -1
 
     digit_string = " ".join(char_nums)
+    if digit_string == None :
+        digit_string = ""
     return digit_string
 
 
@@ -116,4 +118,6 @@ def to_camel_case(underscore_str):
                 temp.append(char.lower())
 
     camelcase_str = "".join(temp)
+    if camelcase_str == None :
+        camelcase_str = ""
     return camelcase_str
