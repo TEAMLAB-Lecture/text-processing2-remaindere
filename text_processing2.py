@@ -28,7 +28,38 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
+    nums = []
+    for char in input_string : 
+        if char.isdigit() == True :
+            nums.append(char)
+    
+    char_nums = []
+
+    for num in nums : 
+        if num == '1' :
+            char_nums.append("one")
+        elif num == '2' :
+            char_nums.append("two")
+        elif num == '3' :
+            char_nums.append("three")
+        elif num == '4' :
+            char_nums.append("four")
+        elif num == '5' :
+            char_nums.append("five")
+        elif num == '6' :
+            char_nums.append("six")
+        elif num == '7' :
+            char_nums.append("seven")
+        elif num == '8' :
+            char_nums.append("eight")
+        elif num == '9' :
+            char_nums.append("nine")
+        elif num == '0' :
+            char_nums.append("zero")
+        else :
+            return -1
+
+    digit_string = " ".join(char_nums)
     return digit_string
 
 
@@ -64,5 +95,25 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
+
+    temp = []
+    up_flag = 0
+    first_flag = 1
+    for char in underscore_str :
+        if char == "_" :
+            up_flag = 1
+        else :
+            if first_flag == 1 :
+                temp.append(char.lower())
+                up_flag = 0
+                first_flag = 0
+                continue
+
+            if up_flag == 1 :
+                temp.append(char.upper())
+                up_flag = 0
+            else : 
+                temp.append(char.lower())
+
+    camelcase_str = "".join(temp)
     return camelcase_str
