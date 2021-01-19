@@ -101,6 +101,10 @@ def to_camel_case(underscore_str):
     temp = []
     up_flag = 0
     first_flag = 1
+
+    if '_' not in underscore_str :
+        return underscore_str
+        
     for char in underscore_str :
         if char == "_" :
             up_flag = 1
